@@ -1,0 +1,162 @@
+<!-- note: this is new -->
+<div class="block" name="linkblock">
+<div class="BlockTitle" name="BlockTitle"><TMPL_VAR NAME='SERVICE' ESCAPE='HTML'></div>
+
+<TMPL_LOOP NAME='TARGETS'>
+<div class="sfxlink">
+<div class="broken" name="broken">
+<form name="brokenlink<TMPL_VAR NAME='FORM'>" action="http://www.library.ualberta.ca/getit/brokenlink-sfx3/index.php" method="POST" target="newwin">
+<input type="hidden" name="sfxdb" value="<TMPL_VAR NAME='INSTANCE' ESCAPE='HTML'>"/>
+<!-- hidden fields like this:
+<input type='hidden' name='tmp_ctx_svc_id' value='1'>
+<input type='hidden' name='tmp_ctx_obj_id' value='1'>
+<input type='hidden' name='service_id' value='111088012171001'>
+<input type='hidden' name='request_id' value='16'>
+
+so brokenlink report system needs to be updated
+-->
+<TMPL_VAR NAME='HIDDEN_FIELDS'>
+
+<!--
+<span class="arrow">&raquo;</span> <a href="javascript:openWin(this); document.brokenlink<TMPL_VAR NAME='FORM'>.submit()">Problem?</a> -->
+</form>
+</div><!-- end broken div -->
+
+
+                    <form METHOD=POST
+                            ACTION="<TMPL_VAR NAME='INSTANCE' ESCAPE='HTML'>/cgi/core/sfxresolver.cgi"
+                            NAME="<TMPL_VAR NAME='FORM'>"
+                            TARGET="newwin">
+                        <TMPL_VAR NAME='NAME' ESCAPE='HTML'><!-- not sure what this is - no output in test-->
+                      
+<!-- hidden fields section -->
+<!-- The hidden fields are fields sent by the cgi and are used by the
+     sfxresolver.cgi to present the actual target.
+     
+ 
+-->
+<TMPL_VAR NAME='HIDDEN_FIELDS'>
+<!-- end hidden fields section -->
+
+
+<!-- target name section -->
+<!-- The target name section is related to the target-specific html section by
+     the 'GO' button.  This button is dependent on the existence of the
+     target-specific information.  Please read the target-specific html section's
+     comment.
+-->
+<a class="sectionAnchor" name="<TMPL_VAR NAME='SERVICE' ESCAPE='HTML'>"></a>
+<TMPL_VAR NAME='SERVICE_NAME' ESCAPE='HTML'>
+<span class="mainlink">
+<TMPL_IF IS_LINKABLE>
+<span class="arrow">&raquo;</span>
+   <A HREF="javascript:openWin(this);window.document.<TMPL_VAR NAME='FORM'>.submit();">
+</TMPL_IF>
+   	<TMPL_VAR NAME='TARGET_NAME'>
+<TMPL_IF IS_LINKABLE>
+   </A>
+</TMPL_IF>
+</span>
+<!-- end target name section -->
+
+
+<!-- target-specific html -->
+<!-- The target-specific html comes from the corresponding target displayer.
+     It is not always present, so it requires a TMPL_IF.  It is IMPORTANT TO NOTE
+     that if this is present the 'GO' button is printed right after it;  if not,
+     it is printed in the same line as the target name (see target name section).
+-->
+<!--        <TMPL_IF TARGET_HTML>
+<br>
+<TMPL_VAR NAME='TARGET_HTML'>
+        </TMPL_IF>
+        -->
+<!-- end target-specific html -->
+
+
+<!-- object thresholds -->
+                        <TMPL_LOOP PARSE_DATE>
+                          <TMPL_IF THRESH_GREATOR>
+                            <TMPL_IF THRESH_UNRELATED>
+ 					<br>
+                                    Available from
+                                        <TMPL_IF THRESH_YEAR><TMPL_VAR NAME='THRESH_YEAR' ESCAPE='HTML'></TMPL_IF>
+                                        <TMPL_IF THRESH_VOLUME> volume: <TMPL_VAR NAME='THRESH_VOLUME' ESCAPE='HTML'></TMPL_IF>
+                                        <TMPL_IF THRESH_ISSUE> issue:<TMPL_VAR NAME='THRESH_ISSUE' ESCAPE='HTML'></TMPL_IF>
+                            </TMPL_IF>
+                            <TMPL_IF THRESH_LOWER_LIMIT>
+                            		<br>
+                                    Available from
+                                        <TMPL_IF THRESH_YEAR><TMPL_VAR NAME='THRESH_YEAR' ESCAPE='HTML'></TMPL_IF>
+                                        <TMPL_IF THRESH_VOLUME> volume: <TMPL_VAR NAME='THRESH_VOLUME' ESCAPE='HTML'></TMPL_IF>
+                                        <TMPL_IF THRESH_ISSUE> issue:<TMPL_VAR NAME='THRESH_ISSUE' ESCAPE='HTML'></TMPL_IF>
+                            </TMPL_IF>
+                          </TMPL_IF>
+                        
+                          <TMPL_IF THRESH_LESS>
+                            <TMPL_IF THRESH_UNRELATED>
+                            		<br>
+                                    Available until
+                                        <TMPL_IF THRESH_YEAR><TMPL_VAR NAME='THRESH_YEAR' ESCAPE='HTML'></TMPL_IF>
+                                        <TMPL_IF THRESH_VOLUME> volume: <TMPL_VAR NAME='THRESH_VOLUME' ESCAPE='HTML'></TMPL_IF>
+                                        <TMPL_IF THRESH_ISSUE> issue:<TMPL_VAR NAME='THRESH_ISSUE' ESCAPE='HTML'></TMPL_IF>
+                            </TMPL_IF>
+                            <TMPL_IF THRESH_UPPER_LIMIT>
+                                    until
+                                        <TMPL_IF THRESH_YEAR><TMPL_VAR NAME='THRESH_YEAR' ESCAPE='HTML'></TMPL_IF>
+                                        <TMPL_IF THRESH_VOLUME> volume: <TMPL_VAR NAME='THRESH_VOLUME' ESCAPE='HTML'></TMPL_IF>
+                                        <TMPL_IF THRESH_ISSUE> issue:<TMPL_VAR NAME='THRESH_ISSUE' ESCAPE='HTML'></TMPL_IF>
+                            </TMPL_IF>
+                          </TMPL_IF>
+
+<!-- Added by Sam -->
+
+			 <TMPL_IF THRESH_EQUAL>
+                               <br />
+                             Available in
+                              <TMPL_IF THRESH_YEAR><TMPL_VAR NAME='THRESH_YEAR' ESCAPE='HTML'></TMPL_IF>
+                              <TMPL_IF THRESH_VOLUME>volume: <TMPL_VAR NAME='THRESH_VOLUME' ESCAPE='HTML'> </TMPL_IF>
+                              <TMPL_IF THRESH_ISSUE> issue: <TMPL_VAR NAME='THRESH_ISSUE'ESCAPE='HTML'></TMPL_IF>
+                         </TMPL_IF>
+
+<!-- End of Sam's Add -->
+                        </TMPL_LOOP>
+                        <TMPL_LOOP TIME_DIFF>
+                                <TMPL_IF AVAILABLE>
+                                	<br>
+                                  Most recent
+                                        <TMPL_IF THRESH_YEAR>  <TMPL_VAR NAME='THRESH_YEAR' ESCAPE='HTML'>  year(s)</TMPL_IF>
+                                        <TMPL_IF THRESH_MONTH> <TMPL_VAR NAME='THRESH_MONTH' ESCAPE='HTML'> month(s)</TMPL_IF>
+                                        available
+                                </TMPL_IF>
+                                <TMPL_IF NOT_AVAILABLE>
+                                	<br>
+                                  Most recent
+                                        <TMPL_IF THRESH_YEAR>  <TMPL_VAR NAME='THRESH_YEAR' ESCAPE='HTML'>  year(s)</TMPL_IF>
+                                        <TMPL_IF THRESH_MONTH> <TMPL_VAR NAME='THRESH_MONTH' ESCAPE='HTML'> month(s)</TMPL_IF>
+                                        not available
+                                </TMPL_IF>
+
+                        </TMPL_LOOP>
+<!-- end object thresholds -->
+
+
+<!-- extra comments -->
+                        <TMPL_IF NOTE>
+				<br>
+                                    <TMPL_VAR NAME='NOTE'>
+                        </TMPL_IF>
+                        <TMPL_IF AUTHENTICATION>
+				<div class="authentication"><span class="label">Note:</span> 
+                                    <TMPL_VAR NAME='AUTHENTICATION'>
+                                </div>
+                        </TMPL_IF>
+<!-- end extra comments -->
+
+                    </form>
+
+
+
+                    </div><!-- end sfxlink -->
+                </TMPL_LOOP>
+</div><!-- end block -->

@@ -1,0 +1,98 @@
+<div id="banner"><img src="http://www.library.ualberta.ca/images/biggetit.gif" alt="Get It" vspace=0 width=283 height=40 align=bottom></div>
+<div id="citation">
+<TMPL_IF BANNER_TYPE_1>
+
+     <TMPL_IF AULAST>
+          <span class="label">Author:</span>
+          <TMPL_VAR NAME="AULAST" ESCAPE='HTML'>
+          <TMPL_IF AUFIRST>,
+              	<TMPL_VAR NAME="AULAST" ESCAPE="HTML">
+          </TMPL_IF>
+          <br>
+     </TMPL_IF>
+
+    <TMPL_IF ATITLE>
+        <span class="label">Title:</span>
+        <TMPL_VAR NAME="ATITLE" ESCAPE='HTML'>
+        <br>
+    </TMPL_IF>
+
+        <span class="label">Source:</span>
+            <TMPL_IF BTITLE>
+                <span class="jtitle"><TMPL_VAR NAME="BTITLE" ESCAPE='HTML'></span>
+            </TMPL_IF>
+            <TMPL_IF ISBN>
+                [<TMPL_VAR NAME="ISBN" ESCAPE='HTML'>]
+            </TMPL_IF>
+	<br>
+
+            <TMPL_IF INST>
+                <TMPL_VAR NAME='INST' ESCAPE='HTML'>
+            </TMPL_IF>
+            <TMPL_IF YEAR>
+                yr:<TMPL_VAR NAME='YEAR' ESCAPE='HTML'>
+            </TMPL_IF>
+            <TMPL_IF SPAGE>
+                pg:<TMPL_VAR NAME='SPAGE' ESCAPE='HTML'></TMPL_IF><TMPL_IF EPAGE>-<TMPL_VAR NAME='EPAGE' ESCAPE='HTML'>
+            </TMPL_IF>
+</TMPL_IF>
+
+
+<TMPL_IF BANNER_TYPE_2>
+
+     <TMPL_IF AULAST>
+          <span class="label">Author:</span>
+          <TMPL_VAR NAME="AULAST" ESCAPE='HTML'>
+          <TMPL_IF AUFIRST>,
+              	<TMPL_VAR NAME="AULAST" ESCAPE="HTML">
+          </TMPL_IF>
+          <br>
+     </TMPL_IF>
+
+    <TMPL_IF ATITLE>
+        <span class="label">Title:</span>
+        <TMPL_VAR NAME="ATITLE" ESCAPE='HTML'>
+        <br>
+    </TMPL_IF>
+       <span class="label">Source:</span>
+
+            <TMPL_IF JTITLE>
+                <span class="jtitle"><TMPL_VAR NAME="JTITLE" ESCAPE='HTML'></span>
+            </TMPL_IF>
+            <TMPL_IF ISSN>
+                [<TMPL_VAR NAME="ISSN" ESCAPE='HTML'>]
+            </TMPL_IF>
+            <TMPL_IF YEAR >
+                yr:<TMPL_VAR NAME='YEAR' ESCAPE='HTML'>
+            </TMPL_IF>
+            <TMPL_IF VOLUME >
+                vol:<TMPL_VAR NAME='VOLUME' ESCAPE='HTML'>
+            </TMPL_IF>
+            <TMPL_IF ISSUE >
+                iss:<TMPL_VAR NAME='ISSUE' ESCAPE='HTML'>
+            </TMPL_IF>
+            <TMPL_IF SPAGE>
+                pg:<TMPL_VAR NAME='SPAGE' ESCAPE='HTML'></TMPL_IF><TMPL_IF EPAGE >-<TMPL_VAR NAME='EPAGE' ESCAPE='HTML'>
+            </TMPL_IF>
+</TMPL_IF>
+
+<TMPL_IF BANNER_TYPE_3>
+
+       <span class="label">Source:</span>
+
+            <TMPL_IF TITLE>
+                <span class="jtitle"><TMPL_VAR NAME="TITLE" ESCAPE='HTML'></span>
+            </TMPL_IF>
+            <TMPL_IF NUMBER>
+                [<TMPL_VAR NAME="NUMBER" ESCAPE='HTML'>]
+            </TMPL_IF>
+            <TMPL_IF INVLAST >
+                <TMPL_VAR NAME='INVLAST' ESCAPE='HTML'>
+            </TMPL_IF>
+            <TMPL_IF YEAR >
+                yr:<TMPL_VAR NAME='YEAR' ESCAPE='HTML'>
+            </TMPL_IF>
+</TMPL_IF>
+
+</div>
+

@@ -1,0 +1,54 @@
+    <TMPL_IF BASIC_TARGET_LIST>
+                        <div class="group" id="basicGroup">
+                            <TMPL_IF COLAPSIBLE_ENABLED>
+                                <!-- arrows (links) for hiding/showing the list of basic services -->
+                                <a href="javascript:toggleBasic();" 
+                                    id="basicUpArrow"><img src="/<TMPL_VAR NAME='INSTANCE' ESCAPE='HTML'>/img/sfxmenu/arrow_on.gif" 
+                                    width="16" height="16" alt="Colapse list of basic services" border="0" 
+                                    hspace="4" vspace="3"></a>
+                                <a href="javascript:toggleBasic();" 
+                                    id="basicDownArrow" style="display: none;"><img 
+                                    src="/<TMPL_VAR NAME='INSTANCE' ESCAPE='HTML'>/img/sfxmenu/arrow_off.gif" width="16" height="16" 
+                                    alt="Expand list of basic services" border="0" hspace="4" vspace="3"></a>
+                                <!-- end arrows (links) for hiding/showing the list of basic services -->
+                            <TMPL_ELSE>
+                            </TMPL_IF>
+                            <TMPL_IF COLAPSIBLE_ENABLED>
+                                <a href="javascript:toggleBasic();" class="GroupTitle">Basic</a>
+                            <TMPL_ELSE>
+                            <!--basic group-->
+				</TMPL_IF>
+                    
+                            <TMPL_LOOP BASIC_TARGET_LIST>
+                                <TMPL_INCLUDE target_list.tmpl>
+                            </TMPL_LOOP>
+			</div>            
+    </TMPL_IF>
+    <TMPL_IF ADVANCED_TARGET_LIST>
+                        <div class="group" id="advancedGroup">
+                            <TMPL_IF COLAPSIBLE_ENABLED>
+                                <!-- arrows (links) for hiding/showing the list of advanced services -->
+                                <a href="javascript:toggleAdvanced();" 
+                                    id="advancedUpArrow" style="display: none;"><img 
+                                    src="/<TMPL_VAR NAME='INSTANCE' ESCAPE='HTML'>/img/sfxmenu/arrow_on.gif" width="16" height="16" 
+                                    alt="Colapse list of advanced services" border="0" hspace="4" vspace="3"></a>
+                                <a href="javascript:toggleAdvanced();" 
+                                    id="advancedDownArrow"><img src="/<TMPL_VAR NAME='INSTANCE' ESCAPE='HTML'>/img/sfxmenu/arrow_off.gif" 
+                                    width="16" height="16" alt="Expand list of advanced services" border="0" 
+                                    hspace="4" vspace="3"></a>
+                                <!-- end arrows (links) for hiding/showing the list of advanced services -->
+                            <TMPL_ELSE>
+                            </TMPL_IF>
+                            <TMPL_IF COLAPSIBLE_ENABLED>
+                                <a href="javascript:toggleAdvanced();" class="GroupTitle">Advanced</a>
+                            <TMPL_ELSE>
+                               <!-- Modified by spopowich, 03/20/2013
+				<div id="advancedBlockTitle">Other Services</div> -->
+			  <div id="advancedBlockTitle">Related Title(s)</div>  
+                            </TMPL_IF>
+                        <TMPL_IF COLAPSIBLE_ENABLED><TMPL_IF BASIC_TARGET_LIST> style="display: none;"</TMPL_IF></TMPL_IF>
+                            <TMPL_LOOP ADVANCED_TARGET_LIST>
+                                <TMPL_INCLUDE target_list.tmpl>
+                            </TMPL_LOOP>
+		</div>    
+</TMPL_IF>

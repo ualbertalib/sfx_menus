@@ -1,0 +1,178 @@
+<TMPL_INCLUDE head.tmpl>
+
+
+
+<form name="OpenURL">
+<input type=hidden name="sfx.request_id" value="<TMPL_VAR REQUEST_ID>">
+<input type=hidden name="__jump_to" value="<TMPL_VAR ESCAPE='HTML' NAME='__jump_to'>">
+<input type=hidden name="__records_per_page_list" value="<TMPL_VAR ESCAPE='HTML' NAME='__records_per_page_list'>">
+<input type=hidden name="__pages_per_list" value="<TMPL_VAR ESCAPE='HTML' NAME='__pages_per_list'>">
+
+        
+        <!-- top block -->
+        <div id="citation">
+                                
+                                <!--<a class="ABC"
+                                    onclick="self.close(); opener.focus();"
+                                    href="#">Close</a>&nbsp;&nbsp;-->
+                                <!-- search description template -->
+                                <div class="searchdescription">
+                                <TMPL_INCLUDE search_description.tmpl>
+                                </div>
+                                <!-- end search description template -->
+
+</div> <!-- end citation div -->
+
+		<div class="searchnavigation">
+<!--    Found <TMPL_VAR record_count> records.-->
+
+
+
+
+
+Showing <TMPL_VAR OFFSET> - <TMPL_VAR OFFSET_END> of <strong><TMPL_VAR RECORD_COUNT></strong> records.                            <TMPL_IF page_loop>
+                                        Go to page:
+                                        <span class="pageindex">
+                                        <TMPL_IF PREVIOUS_PAGE_GROUP>
+                                            <a class="ABC"
+                                                href="#"
+                                                onClick="gotoPage(<TMPL_VAR PREVIOUS_PAGE_GROUP>,document.OpenURL);">&lt;</a>
+                                        </TMPL_IF>
+                                        <TMPL_LOOP PAGE_LOOP>
+                                            <TMPL_IF PAGE_LINK>
+                                                <a class="ABC"
+                                                href="#"
+                                                onClick="gotoPage(<TMPL_VAR PAGE_NUMBER>,document.OpenURL);"><TMPL_VAR PAGE_NUMBER></a>
+                                            <TMPL_ELSE>
+                                                <TMPL_VAR PAGE_NUMBER>
+                                            </TMPL_IF>
+                                        </TMPL_LOOP>
+                                        <TMPL_IF NEXT_PAGE_GROUP>
+                                            <a class="ABC"
+                                                href="#"
+                                                onClick="gotoPage(<TMPL_VAR NEXT_PAGE_GROUP>,document.OpenURL);">&gt;</a>
+                                        </TMPL_IF>
+                                        </span>
+                                    </TMPL_IF>
+<br/><br/>
+                        Show <select name="__records_per_page" onChange="submit();">
+                            <TMPL_LOOP records_per_page_loop>
+                                <option value="<TMPL_VAR RECORDS_PER_PAGE>" <TMPL_VAR NAME='SELECTED'>><TMPL_VAR records_per_page>
+                            </TMPL_LOOP>
+                        </select>
+                        records per page.
+
+</div> <!-- end searchnavigation div -->
+<div id="main">
+<div class="block" name="linkblock">
+<div class="BlockTitle" name="BlockTitle">Matching Items</div>
+                <TMPL_LOOP object_loop>
+<div class="sfxlink">                                        
+<a href="javascript:OpenWindow('<TMPL_INCLUDE new_openurl.tmpl>')">Title:</a>
+    <a href="javascript:OpenWindow('<TMPL_INCLUDE new_openurl.tmpl>')"><TMPL_VAR TITLE></a>
+<!-- this isn't working: it only says "Full text" for some journals and not others, with no apparent pattern
+                                                    <TMPL_IF service_loop>
+                                                        (
+                                                        <TMPL_LOOP service_loop>
+                                                            <TMPL_IF getAbstract>Abstract</TMPL_IF>
+                                                            <TMPL_IF getAlikeRecord>A like record</TMPL_IF>
+                                                            <TMPL_IF getAuthor>Author</TMPL_IF>
+                                                            <TMPL_IF getAuthorEmail>Author e-mail</TMPL_IF>
+                                                            <TMPL_IF getBookReview>Book review</TMPL_IF>
+                                                            <TMPL_IF getCitedJournal>Cited journal</TMPL_IF>
+                                                            <TMPL_IF getCitedRecord>Cited record</TMPL_IF>
+                                                            <TMPL_IF getCitedReference>Cited reference</TMPL_IF>
+                                                            <TMPL_IF getDocumentDelivery>Document delivery</TMPL_IF>
+                                                            <TMPL_IF getDOI>DOI</TMPL_IF>
+                                                            <TMPL_IF getFullTxt>Full text</TMPL_IF>
+                                                            <TMPL_IF getHolding>Holding</TMPL_IF>
+                                                            <TMPL_IF getMessageNoFullTxt>No full text</TMPL_IF>
+                                                            <TMPL_IF getReference>Reference</TMPL_IF>
+                                                            <TMPL_IF getSubject>Subject</TMPL_IF>
+                                                            <TMPL_IF getTOC>TOC</TMPL_IF>
+                                                            <TMPL_IF getWebSearch>Web search</TMPL_IF>
+                                                            <TMPL_IF getWebService>Web service</TMPL_IF>
+
+                                                            <TMPL_UNLESS __last__>,</TMPL_UNLESS>
+                                                        </TMPL_LOOP>
+                                                        )
+                                                    <TMPL_ELSE>
+                                                        <TMPL_IF CONTAINS_PORTFOLIOS>(Portfolios available)</TMPL_IF>
+</TMPL_IF>
+-->
+
+<!--<span class="arrow">&raquo;</span>
+<a href="javascript:OpenWindow('<TMPL_INCLUDE new_openurl.tmpl>')"><img border="0" src="<TMPL_VAR BASE>/resolver-templates/gifs/getit.gif"></a>-->
+
+
+
+<br/>
+
+
+                                            <TMPL_IF ISSN>
+																ISSN: <TMPL_VAR ESCAPE='HTML' NAME='ISSN'>
+                                             <br/>
+                                            </TMPL_IF>
+                                            <TMPL_IF eISSN>
+                                                eISSN: <TMPL_VAR ESCAPE='HTML' NAME='eISSN'>
+                                                <br/>
+                                            </TMPL_IF>
+                                            <TMPL_IF CODEN>
+                                                 CODEN: <TMPL_VAR ESCAPE='HTML' NAME='CODEN'>
+                                                 <br/>
+                                            </TMPL_IF>
+                                            <TMPL_IF LCCN>
+                                                    LCCN: <TMPL_VAR ESCAPE='HTML' NAME='LCCN'><br/>
+                                            </TMPL_IF>
+                                            <TMPL_IF PUBLISHER>
+                                                    Publisher: <TMPL_VAR ESCAPE='HTML' NAME='PUBLISHER'>
+                                                    <br/>
+                                            </TMPL_IF>
+                                            <TMPL_IF PLACE_OF_PUBLICATION>
+
+                                                    Place of publication: <TMPL_VAR ESCAPE='HTML' NAME='PLACE_OF_PUBLICATION'>
+																			<br/>
+                                            </TMPL_IF>
+</div> <!-- end sfxlink div -->
+                </TMPL_LOOP>
+</div> <!-- end linkblock div -->
+
+</form>
+</div> <!-- end main div -->
+
+<div class="searchnavigation">
+Showing <TMPL_VAR OFFSET> - <TMPL_VAR OFFSET_END> of <strong><TMPL_VAR RECORD_COUNT></strong> records.                            <TMPL_IF page_loop>
+                                        Go to page:
+                                        <span class="pageindex">
+                                        <TMPL_IF PREVIOUS_PAGE_GROUP>
+                                            <a class="ABC"
+                                                href="#"
+                                                onClick="gotoPage(<TMPL_VAR PREVIOUS_PAGE_GROUP>,document.OpenURL);">&lt;</a>
+                                        </TMPL_IF>
+                                        <TMPL_LOOP PAGE_LOOP>
+                                            <TMPL_IF PAGE_LINK>
+                                                <a class="ABC"
+                                                href="#"
+                                                onClick="gotoPage(<TMPL_VAR PAGE_NUMBER>,document.OpenURL);"><TMPL_VAR PAGE_NUMBER></a>
+                                            <TMPL_ELSE>
+                                                <TMPL_VAR PAGE_NUMBER>
+                                            </TMPL_IF>
+                                        </TMPL_LOOP>
+                                        <TMPL_IF NEXT_PAGE_GROUP>
+                                            <a class="ABC"
+                                                href="#"
+                                                onClick="gotoPage(<TMPL_VAR NEXT_PAGE_GROUP>,document.OpenURL);">&gt;</a>
+                                        </TMPL_IF>
+                                        </span>
+                                    </TMPL_IF>
+<br/><br/>
+                        Show <select name="__records_per_page" onChange="submit();">
+                            <TMPL_LOOP records_per_page_loop>
+                                <option value="<TMPL_VAR RECORDS_PER_PAGE>" <TMPL_VAR NAME='SELECTED'>><TMPL_VAR records_per_page>
+                            </TMPL_LOOP>
+                        </select>
+                        records per page.
+
+
+</div><!-- end searchnavigation div -->
+<TMPL_INCLUDE tail.tmpl>

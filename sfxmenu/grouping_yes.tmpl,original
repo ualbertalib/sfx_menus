@@ -1,0 +1,84 @@
+<TABLE CELLPADDING="0" CELLSPACING="0" BORDER=0 width="100%">
+    <TMPL_IF BASIC_TARGET_LIST>
+        <TR>
+            <TD>
+                <TABLE CELLPADDING="0" CELLSPACING="0" BORDER=0 width="100%">
+                    <TR class="BGTab">
+                        <TD class="GroupTitle">
+                            <TMPL_IF COLAPSIBLE_ENABLED>
+                                <!-- arrows (links) for hiding/showing the list of basic services -->
+                                <a href="javascript:toggleBasic();" 
+                                    id="basicUpArrow"><img src="/<TMPL_VAR NAME='INSTANCE' ESCAPE='HTML'>/img/sfxmenu/arrow_on.gif" 
+                                    width="16" height="16" alt="Colapse list of basic services" border="0" 
+                                    hspace="4" vspace="3"></a>
+                                <a href="javascript:toggleBasic();" 
+                                    id="basicDownArrow" style="display: none;"><img 
+                                    src="/<TMPL_VAR NAME='INSTANCE' ESCAPE='HTML'>/img/sfxmenu/arrow_off.gif" width="16" height="16" 
+                                    alt="Expand list of basic services" border="0" hspace="4" vspace="3"></a>
+                                <!-- end arrows (links) for hiding/showing the list of basic services -->
+                            <TMPL_ELSE>
+                                &nbsp;
+                            </TMPL_IF>
+                        </TD>
+                        <TD class="GroupTitle" height="22" width="100%">
+                            <TMPL_IF COLAPSIBLE_ENABLED>
+                                <a href="javascript:toggleBasic();" class="GroupTitle">Basic</a>
+                            <TMPL_ELSE>
+                            <!--basic group-->
+				</TMPL_IF>
+                        </TD>
+                    </TR>
+                    <TR id="basicBody">
+                        <TD colspan="2">
+                            <TMPL_LOOP BASIC_TARGET_LIST>
+                                <TMPL_INCLUDE target_list.tmpl>
+                            </TMPL_LOOP>
+                        </TD>
+                    </TR>
+                </TABLE>
+            </TD>
+        </TR>
+        <TR><TD height="2"><img src="<TMPL_VAR NAME='INSTANCE' ESCAPE='HTML'>/img/sfxmenu/pixel.gif" border="0"/></TD></TR>
+    </TMPL_IF>
+    <TMPL_IF ADVANCED_TARGET_LIST>
+        <TR>
+            <TD>
+                <TABLE CELLPADDING="0" CELLSPACING="0" BORDER="0" width="100%">
+                    <TR class="BGTab">
+                        <TD class="GroupTitle">
+                            <TMPL_IF COLAPSIBLE_ENABLED>
+                                <!-- arrows (links) for hiding/showing the list of advanced services -->
+                                <a href="javascript:toggleAdvanced();" 
+                                    id="advancedUpArrow" style="display: none;"><img 
+                                    src="/<TMPL_VAR NAME='INSTANCE' ESCAPE='HTML'>/img/sfxmenu/arrow_on.gif" width="16" height="16" 
+                                    alt="Colapse list of advanced services" border="0" hspace="4" vspace="3"></a>
+                                <a href="javascript:toggleAdvanced();" 
+                                    id="advancedDownArrow"><img src="/<TMPL_VAR NAME='INSTANCE' ESCAPE='HTML'>/img/sfxmenu/arrow_off.gif" 
+                                    width="16" height="16" alt="Expand list of advanced services" border="0" 
+                                    hspace="4" vspace="3"></a>
+                                <!-- end arrows (links) for hiding/showing the list of advanced services -->
+                            <TMPL_ELSE>
+                                &nbsp;
+                            </TMPL_IF>
+                        </TD>
+                        <TD class="GroupTitle" height="22" width="100%">
+                            <TMPL_IF COLAPSIBLE_ENABLED>
+                                <a href="javascript:toggleAdvanced();" class="GroupTitle">Advanced</a>
+                            <TMPL_ELSE>
+                               Other Services 
+                            </TMPL_IF>
+                        </TD>
+                    </TR>
+                    <TR id="advancedBody" 
+                        <TMPL_IF COLAPSIBLE_ENABLED><TMPL_IF BASIC_TARGET_LIST> style="display: none;"</TMPL_IF></TMPL_IF>>
+                        <TD colspan="2">
+                            <TMPL_LOOP ADVANCED_TARGET_LIST>
+                                <TMPL_INCLUDE target_list.tmpl>
+                            </TMPL_LOOP>
+                        </TD>
+                    </TR>
+                </TABLE>
+            </TD>
+        </TR>
+    </TMPL_IF>
+</TABLE>

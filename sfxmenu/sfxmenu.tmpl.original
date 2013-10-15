@@ -1,0 +1,84 @@
+<!--
+SFX (tm) menu HTML template
+Copyright Ex Libris Inc. (2004)
+Version: $Id: sfxmenu.tmpl,v 1.30 2004/12/14 19:28:16 am_3 Exp $
+//-->
+<HTML>
+<HEAD>
+    <TITLE>Get It! @ ualberta</TITLE>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+    <META HTTP-EQUIV="expires" CONTENT="Sat, 27 Sep 1980 08:21:57 GMT">
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META NAME="ROBOTS" CONTENT="NONE">
+    <META NAME="GOOGLEBOT" CONTENT="NOARCHIVE">
+    <LINK REL="stylesheet" TYPE="text/css" href="/<TMPL_VAR NAME='INSTANCE' ESCAPE='HTML'>/css/public/style.css">
+    <SCRIPT type="text/javascript" LANGUAGE="JavaScript" src="/<TMPL_VAR NAME='INSTANCE' ESCAPE='HTML'>/js/sfxmenu/main.js"></SCRIPT>
+<!-- <TMPL_VAR NAME='OPENURL' ESCAPE='HTML'> //-->
+<!-- <TMPL_VAR NAME='CTX_OBJECT' ESCAPE='HTML'> //-->
+</HEAD>
+
+<BODY LEFTMARGIN="0" TOPMARGIN="0" MARGINWIDTH="0" MARGINHEIGHT="0">
+<SCRIPT LANGUAGE="JavaScript1.1" SRC="/sfxmenu/util.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.1">myFocus();</SCRIPT>
+
+<TABLE CELLPADDING="0" CELLSPACING="0" BORDER=0 WIDTH="100%" HEIGHT="100%">
+    <TR>
+        <TD><IMG SRC="/<TMPL_VAR NAME='INSTANCE' ESCAPE='HTML'>/img/sfxmenu/header.gif" WIDTH="455" HEIGHT="48" BORDER="0"
+                ALT="ExLibris header image"></TD>
+    </TR>
+    <TR>
+        <TD>
+            <TABLE CELLPADDING="0" CELLSPACING="0" BORDER="0" WIDTH="100%">
+                <TR>
+                    <TD><IMG SRC="/<TMPL_VAR NAME='INSTANCE' ESCAPE='HTML'>/img/sfxmenu/tl_sfx.gif"
+                        WIDTH="103" HEIGHT="35" BORDER="0" ALT="SFX"></TD>
+                    <TD class="Header">SFX Services for this record</TD>
+                </TR>
+            </TABLE>
+        </TD>
+    </TR>
+    <TR>
+        <FORM name="lng_form">
+        <TD HEIGHT="18" ALIGN="RIGHT">
+                Language
+                <SELECT NAME="language" onChange=set_user_profile()>
+                    <OPTION value="English"<TMPL_VAR NAME='English' ESCAPE='HTML'>>English</OPTION>
+                    <OPTION value="Dutch"<TMPL_VAR NAME='Dutch' ESCAPE='HTML'>>Dutch</OPTION>
+                </SELECT>
+        </TD>
+        </FORM>
+    </TR>
+    <TR>
+        <TD HEIGHT="1" class="GrayLine"><IMG SRC="/<TMPL_VAR NAME='INSTANCE' ESCAPE='HTML'>/img/sfxmenu/pixel.gif"
+            WIDTH="1" HEIGHT="1" BORDER="0" ALT=""></TD>
+    </TR>
+    <TR>
+        <TD style="padding-left:10px">
+            <TABLE CELLPADDING="2" CELLSPACING="2" BORDER="0">
+                <TMPL_INCLUDE banner.tmpl>
+            </TABLE>
+        </TD>
+    </TR>
+    <TMPL_IF NO_SERVICES>
+        <TR>
+            <TD class="LabelHighlight" align="center">
+                <TMPL_VAR NAME='NO_SERVICES' ESCAPE='HTML'>
+            </TD>
+        </TR>
+    <TMPL_ELSE>
+        <TR>
+            <TD style="padding-left:10px">
+                <TMPL_IF GROUPING_ENABLED>
+                    <TMPL_INCLUDE grouping_yes.tmpl>
+                <TMPL_ELSE>
+                    <TMPL_INCLUDE grouping_no.tmpl>
+                </TMPL_IF>
+            </TD>
+        </TR>
+    </TMPL_IF>
+    <TR>
+        <TD HEIGHT="100%" VALIGN="bottom" class="Footer">&copy; 2004 SFX by Ex Libris (USA) Inc.</TD>
+    </TR>
+</TABLE>
+</BODY>
+</HTML>

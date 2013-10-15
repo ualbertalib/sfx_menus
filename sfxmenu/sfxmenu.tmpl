@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+<!--
+SFX (tm) menu HTML template
+Copyright Ex Libris Inc. (2004)
+Version: $Id: sfxmenu.tmpl,v 1.30 2004/12/14 19:28:16 am_3 Exp $
+//-->
+<HTML>
+<HEAD>
+    <TITLE>Get It! @ ualberta</TITLE>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+    <META HTTP-EQUIV="expires" CONTENT="Sat, 27 Sep 1980 08:21:57 GMT">
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META NAME="ROBOTS" CONTENT="NONE">
+    <META NAME="GOOGLEBOT" CONTENT="NOARCHIVE">
+    <LINK REL="stylesheet" TYPE="text/css" href="/<TMPL_VAR NAME='INSTANCE' ESCAPE='HTML'>/css/public/menu.css">
+    <SCRIPT type="text/javascript" LANGUAGE="JavaScript" src="/<TMPL_VAR NAME='INSTANCE' ESCAPE='HTML'>/js/sfxmenu/main.js"></SCRIPT>
+<!-- <TMPL_VAR NAME='OPENURL' ESCAPE='HTML'> //-->
+
+
+
+
+
+
+</HEAD>
+<BODY>
+<div id="container">
+<TMPL_INCLUDE banner.tmpl>
+
+<noscript>
+<div id="noscript">
+You must enable Javascript in your browser in order to use this menu.
+</div>
+</noscript>
+
+<div id="main">
+    <TMPL_IF NO_SERVICES>
+                <TMPL_VAR NAME='NO_SERVICES' ESCAPE='HTML'>
+    <TMPL_ELSE>
+                <TMPL_IF GROUPING_ENABLED>
+                    <TMPL_INCLUDE grouping_yes.tmpl>
+                <TMPL_ELSE>
+                    <TMPL_INCLUDE grouping_no.tmpl> <!-- this is what we're using -->
+                </TMPL_IF>
+    </TMPL_IF>
+
+<!-- old tail.html -->
+<SCRIPT type="text/javascript" LANGUAGE="JavaScript1.1">
+function showBrokenLink(name) {
+	//alert("Seeking " + name);
+	var anchors = document.getElementsByName(name);
+	//alert("anchors: " + anchors.length);
+	if (anchors.length > 0) {
+		for (var i=0; i<anchors.length; i++) {
+
+		var block = anchors.item(i).parentNode.parentNode;
+
+	        var spans = block.getElementsByTagName("span");
+        	//alert("spans: " + spans.length);
+	        var nofulltext = false;
+        	for (var j=0; j < spans.length; j++) {
+	                if (spans[j].className == "nofulltext")
+        	                nofulltext = true;
+	        }
+	        if (!nofulltext) {
+
+
+
+	//	alert("Found " + name);
+		var divs = block.getElementsByTagName("div");
+	//	alert("Divs: " + divs.length);
+		var broken = divs.item(0);
+		// keep IE happy: see http://www.codestyle.org/javascript/dom/css/visibility-HorizontalMenus.shtml
+		if((broken.style)&&(broken.style.visibility!=null)){
+			//broken.style.visibility = 'visible';
+			broken.className = "showbroken";
+		}
+
+		if (broken.getAttribute("class") == "broken") {
+                //	broken.style.visibility = "visible";
+			broken.className = "showbroken";
+		}
+	//	alert("broken.style.visibility: " + broken.style.visibility);
+		//else broken.style. = 'none';
+
+		
+		}
+		}
+		
+	}
+
+}
+
+// getFullText
+showBrokenLink("Get It as Online Full Text");
+// getAbstract
+showBrokenLink("Abstract");
+// getTOC
+showBrokenLink("Table of Contents");
+// getDOI
+showBrokenLink("DOI");
+
+function greyOut(name) {
+// grey out the blocks with no services
+var block = document.getElementsByName(name).item(0).parentNode.parentNode.parentNode;
+	//alert("blocks: " + document.getElementsByName(name).length + "; class: " + block.innerHTML);
+	var spans = block.getElementsByTagName("span");
+	//alert("spans: " + spans.length);
+	var grey = false;
+	for (var j=0; j < spans.length; j++) {
+		//alert ("class: " + spans[j].innerHTML);
+		if (spans[j].className == "nofulltext")
+			grey = true;
+	}
+//	alert ("grey: " + grey);
+	if (grey)
+	block.className = "blockGrey";
+}
+
+greyOut('Get It as Online Full Text');
+greyOut('Get It from the Catalogue');
+greyOut('Get It from Another Library');
+
+</SCRIPT>
+<div class="sfxlink">
+        <span class="mainlink">
+                For more information about the <i>Get&nbsp;It</i> service, see the <span class="arrow">&raquo;</span> <a href="http://www.library.ualberta.ca/getit/faq/index.cfm" target="newwin"><i>Get&nbsp;It</i> FAQ</a>
+</span>
+</div>
+</div><!-- end main div -->
+
+<div id="tail">
+&#169; 2004 SFX by Ex Libris (USA) Inc.
+<br>
+<a href="http://www.crossref.org" target="_new" class="crossreflink">CrossRef</a><a href="http://erms.library.ualberta.ca/coral/terms/?issn=<TMPL_VAR
+NAME="ISSN">" target="newwin">.</a> Enabled
+</div><!-- end tail div -->
+</div><!-- end container div -->
+</BODY>
+</HTML>

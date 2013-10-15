@@ -1,0 +1,226 @@
+  #main a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #0000ee;
+    outline: none;
+    border: 1px solid #ffffff;
+  }
+  #main a:visited {
+    text-decoration: none;
+    font-weight: bold;
+    color: #0000ee;
+    outline: none;
+    border: 1px solid #ffffff;
+  }
+  #main a:active {
+    text-decoration: none;
+    font-weight: bold;
+    color: #0000ee;
+    outline: none;
+    border: 1px solid #ffffff;
+  }
+ #main a:hover {
+    text-decoration: underline;
+  }
+  #banner {
+    border-left: 1px #000000 solid;
+    border-right: 1px #000000 solid;
+    border-top: 1px #000000 solid;
+    background: #eeeeee;
+    padding: 0px;
+    margin-bottom: 0px;
+  }
+  body {
+    font-family: verdana, arial, sans-serif;
+    font-size: 80%;
+    background: #cccccc;
+  }
+  #citation {
+    padding-left: 10px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    background: #ffffdd;
+    border-left: 1px #000000 solid;
+    border-right: 1px #000000 solid;
+    border-bottom: 1px #000000 solid;
+    border-top: 1px #000000 solid;
+    padding: 10px 5px 10px 10px;
+  }
+.searchdescription {
+  font-weight: bold;
+}
+   .searchnavigation {
+    padding-left: 10px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    background: #ffffdd;
+    border-left: 1px #000000 solid;
+    border-right: 1px #000000 solid;
+    border-bottom: 1px #000000 solid;
+    padding: 10px 5px 10px 10px;
+  }
+.pageindex {
+  background: #fff;
+  border: 1px solid black;
+  padding: 3px;
+}
+ .sfxlink {
+    margin-left: 36px;
+    text-indent: -16px;
+    margin-bottom: 7px;
+    margin-right: 10px;
+    margin-top: 0px;
+    border-top: 1px #ffcccc solid;
+    padding-top: 2px;
+		visibility: visible;
+  }
+  form {
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  #tail {
+    font-size: 70%;
+    text-align: center;
+    margin-top: 20px;
+  }
+  #main {
+    border: 1px #000000 solid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #ffffff;
+    margin-top: 10px;
+
+  }
+  .label {
+    font-weight: bold;
+  }
+  .arrow {
+    color: #73080d;
+    font-weight: bold;
+    font-size: 100%;
+  }
+  .nofulltext {
+    color: #666;
+    font-weight: normal;
+  }
+  .authentication {
+    font-size: 90%;
+    margin-left: 2em;
+  }
+  .broken {
+    font-size: 0%;
+    float: right;
+    clear: right;
+    text-indent: 0px;
+    border: 1px #73080d  solid;
+    padding: 2px;
+    margin-top: -3px;
+    visibility: hidden;
+  }
+  .showbroken {
+    font-size: 80%;
+    float: right;
+    clear: right;
+    text-indent: 0px;
+    border: 1px #73080d  solid;
+    padding: 2px;
+    margin-top: -3px;
+	text-align: right;
+    visibility: visible;
+  }
+  .link {
+    width: 350px;
+  }
+  .multi-field {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 1em;
+    margin-right: 1em;
+    line-height: 130%;
+  }
+  .multi-item {
+    border-top: 1px #73080d solid;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 5px;
+    padding-top: 5px;
+  }
+  .multi-button {
+    margin-left: 250px;
+  }
+  #main p {
+    margin-top: 0px;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  #noscript {
+    margin: 1em;
+    border: 1px black solid;
+    padding: 10px;
+    background: #fcc;
+    font-weight: bold;
+  }
+  .jtitle {
+    font-style: italic;
+  }
+  .BlockTitle, #advancedBlockTitle {
+    font-size: 110%;
+    font-weight: bold;
+    background:   #ffffdd;
+    padding: 2px 0px 3px 5px;
+  }
+  .block, .blockGrey {
+    visibility: visible;
+    margin: 5px 10px 15px 10px;
+    padding-left: 0px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+
+  }
+  .blockGrey {
+    background: #f8f8f8;
+     border-top: 1px solid #999;
+     border-left: 1px solid #999;
+  }
+  #basicGroup .block, #advancedGroup {
+/*     border-top: 1px solid #999;
+     border-left: 1px solid #999;*/
+  }
+  #advancedGroup {
+    margin: 5px 10px 15px 10px;
+    padding: 2px 0px 0px 0px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+
+
+  }
+  #advancedGroup .block, #advancedGroup .blockGrey {
+    visibility: visible;
+    margin-left: 0;
+    margin-bottom: 0;
+    border: 0;
+    padding-left: 0;
+  }
+  #advancedGroup .BlockTitle {
+    font-size: 0%;
+    font-style: italic;
+    font-weight: normal;
+    margin-left: 10px;
+    background: #fff;
+    border: 0;
+	margin: 0;
+	padding: 0;
+    visibility: hidden;
+    height: 0px;
+  }
+  .blockGrey .BlockTitle {
+    color: #999;
+    background: #f8f8f8;
+    border: 0;
+  }
+
+
+
+
+
+
