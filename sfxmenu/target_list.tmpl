@@ -5,7 +5,7 @@
 <TMPL_LOOP NAME='TARGETS'>
 <div class="sfxlink">
 <div class="broken" name="broken">
-<form name="brokenlink<TMPL_VAR NAME='FORM'>" action="http://www.library.ualberta.ca/getit/brokenlink-sfx3/index.php" method="POST" target="newwin">
+<form name="brokenlink<TMPL_VAR NAME='FORM'>" action="https://www.library.ualberta.ca/getit/brokenlink-sfx3/index.php" method="POST" target="newwin">
 <input type="hidden" name="sfxdb" value="<TMPL_VAR NAME='INSTANCE' ESCAPE='HTML'>"/>
 <!-- hidden fields like this:
 <input type='hidden' name='tmp_ctx_svc_id' value='1'>
@@ -147,7 +147,7 @@ so brokenlink report system needs to be updated
                                     <TMPL_VAR NAME='NOTE'>
                         </TMPL_IF>
                         <TMPL_IF AUTHENTICATION>
-				<div class="authentication"><span class="label">Terms of Use:</span> 
+				<div class="authentication"><span class="label"></span> 
                                     <TMPL_VAR NAME='AUTHENTICATION'>
                                 </div>
                         </TMPL_IF>
